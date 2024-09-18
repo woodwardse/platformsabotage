@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        {margin:0;
+        padding:0;}
+    body{
+        background: rgb(84, 103, 226);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .head{
+        position: relative;
+        width: 200px;
+        height:300px;
+        background: bisque;
+        border-radius: 25% 25% 50% 50% 
+    }
+    .ear {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 205px solid bisque;
+    left: -95px;
+    top: 80px;
+}
+    .eye-left{
+        position: absolute;
+        width:40px;
+        height:40px;
+        background: white;
+        top: 120px; 
+        left:35px;
+        border-radius: 50%;
+    }
+    .eye-right{
+        position: absolute;
+        width:40px;
+        height:40px;
+        background: white;
+        top: 120px; 
+        right:35px;
+        border-radius: 50%;
+    }
+    .pupil-left{
+        position: absolute;
+        width:25px;
+        height:25px;
+        background: rgb(69, 155, 89);
+        top: 125px; 
+        left:45px;
+        border-radius: 50%;
+    }
+    .pupil-right{
+        position: absolute;
+        width:25px;
+        height:25px;
+        background: rgb(69, 155, 89);
+        top: 125px; 
+        right:40px;
+        border-radius: 50%;
+    }
+    .hair{
+        position: absolute;
+        width:300px;
+        height:400px;
+        background:rgb(218, 113, 53);
+        top: 100px; 
+        right:-50px;
+        z-index: -1;
+
+    }
+    .hair-top{
+        position: absolute;
+        border-bottom: 120px solid rgb(218, 113, 53);
+	border-left: 20px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 235px;
+    left:-40px;
+    top: -10px;}
+
+    .nose{
+        position: absolute;
+        width:30px;
+        height:40px;
+        background: rgb(230, 166, 132);
+        left: 85px;
+        top: 170px;
+        border-radius: 15% 15% 50% 50% 
+    }
+    .mouth {
+        position: absolute;
+        top: 200px;
+        left: 63px;
+        width: 80px;
+        height: 40px;
+        background: transparent;
+        border-radius: 50%;
+        border-bottom: 7px solid rgb(230, 166, 132);
+      }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="ear"></div>  
+        <div class="eye-left"></div> 
+        <div class="eye-right"></div>
+        <div class="pupil-left"></div>
+        <div class="pupil-right"></div>
+        <div class="hair"></div>
+        <div class="hair-top"></div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+    </div>
+  
+</body>
+</html>
