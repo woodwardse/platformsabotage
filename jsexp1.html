@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #colorbox {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            margin-bottom: 20px; 
+        }
+
+        button {
+            font-size: 15px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="colorbox"></div>
+    <button id="changecolorbutton">CHANGE</button>
+
+    <script>
+        const colorbox = document.getElementById("colorbox");
+        const changecolorbutton = document.getElementById("changecolorbutton");
+
+        const colors = ["green", "blue", "yellow", "red", "black"];
+        const boxSizes = [
+            { width: '300px', height: '300px' },
+            { width: '300px', height: '400px' },
+            { width: '700px', height: '500px' },
+            { width: '200px', height: '600px' }
+        ];
+
+        changecolorbutton.addEventListener("click", () => {
+            // Change color
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            colorbox.style.backgroundColor = randomColor;
+
+            // Change box size
+            const randomSize = boxSizes[Math.floor(Math.random() * boxSizes.length)];
+            colorbox.style.width = randomSize.width;
+            colorbox.style.height = randomSize.height;
+        });
+    </script>
+    
+</body>
+</html>
