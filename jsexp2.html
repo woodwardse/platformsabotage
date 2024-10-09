@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flies and Trash</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            cursor: none; /* Hides the mouse cursor */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .fly {
+            position: absolute;
+            width: 40px; /* Larger fly size */
+            height: 40px;
+            background-image: url('fly.png'); /* Replace with your fly image */
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        img {
+            width: 1000px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Trash image -->
+    <img src="trash.png" alt="Image of trash">
+
+    <script>
+        $(document).ready(function () {
+            // Variable to control the time delay between creating flies
+            let lastFlyTime = 0;
+            let delay = 200; // Minimum time (in ms) between flies
+
+            $(document).mousemove(function (e) {
+                // Get the current time
+                let currentTime = new Date().getTime();
+
+                // Only create a new fly if enough time has passed (i.e., delay)
+                if (currentTime - lastFlyTime > delay) {
+                    // Update the last fly creation time
+                    lastFlyTime = currentTime;
+
+                    // Create a new fly element
+                    var fly = $('<div class="fly"></div>');
+
+                    // Set the position of the fly based on mouse coordinates
+                    fly.css({
+                        left: e.pageX + 'px',
+                        top: e.pageY + 'px'
+                    });
+
+                    // Append the fly to the body
+                    $('body').append(fly);
+
+                    // Slowly fade and remove the fly after a short duration
+                    fly.animate({
+                        opacity: 0
+                    }, 2000, function () {
+                        $(this).remove();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
