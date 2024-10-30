@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bug Image on Key Press</title>
+  <style>
+    body {
+      background-color: rgb(163, 198, 152);
+      overflow: hidden;
+      position: relative;
+      color: rgb(43, 45, 43);
+    }
+    img {
+      max-width: 100px;
+      height: auto;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>eek! please help me find the bugs! :(</h1>
+
+  <script>
+    // Object mapping letter keys to bug image URLs
+    const bugImages = {
+      'a': 'stinkbug.png', 'b': 'beetles.png',  'c': 'beetle.png', 'd': 'mouse.png',
+      'e': 'ants.png', 'f': 'spider.png', 'g':'worm.png', 'h':'caterpiller.png', 'i':'ants2.png', 'j':"ladybug.png", 'k':'beetle2.png', 'l':'grasshopper.png',
+      // Add more letters and corresponding bug image paths as needed
+    };
+
+    // Array of all bug images to pick a random one if the letter isn’t mapped
+    const allBugImages = [
+      'stinkbug.png',
+      'beetles.png',
+      'beetle.png',
+      'mouse.png',
+      'ants.png',
+      'spider.png',
+      'worm.png',
+      'caterpiller.png',
+      'ants2.png',
+      'ladybug.png',
+      'beetle2.png',
+      'grasshopper.png',
+
+      // Add all bug images here
+    ];
+
+    // Function to show a bug image based on key press
+    function showBugImage(event) {
+      const key = event.key.toLowerCase(); // Get the pressed key in lowercase
+      const bugImage = bugImages[key] || allBugImages[Math.floor(Math.random() * allBugImages.length)];
+
+      // Create a new img element
+      const img = document.createElement('img');
+      img.src = bugImage;
+      img.alt = 'Bug Image';
+
+      // Set random positions for the image
+      img.style.left = `${Math.random() * window.innerWidth}px`;
+      img.style.top = `${Math.random() * window.innerHeight}px`;
+
+      // Add the image to the document body
+      document.body.appendChild(img);
+    
+    setTimeout(() => {
+        img.remove();
+      }, 3500);
+    }
+
+    // Add an event listener for any key press
+    document.addEventListener('keypress', showBugImage);
+  </script>
+
+</body>
+</html>
